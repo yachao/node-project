@@ -1,0 +1,10 @@
+{
+    "dbname":"activity",
+    "port": "27017",
+    "host": "localhost",
+    "username": "zc",
+    "password": "123456",
+    "BASE_URL": "http://localhost:3000/",
+    "email_server": "",
+    "uploadRedirectUrl": "http://127.0.0.1:8020/client-web/main.html#/contacts"
+}
