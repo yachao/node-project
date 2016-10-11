@@ -9,10 +9,11 @@ var express = require('express'),
 app.set('port', process.env.PORT || 3000);
 
 // Mongoose connection to MongoDB
-mongoose.connect(uri, function(error){
-    if(error){
-        console.log(error);
-    }
+mongoose.connect(uri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+	console.log('DB Connected');
 });
 
 //日志配置

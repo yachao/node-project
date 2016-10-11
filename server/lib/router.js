@@ -9,10 +9,6 @@ var user = require('./user');
 * 可供第三方访问，部分接口需使用鉴权
 */
 module.exports = function(app){
-	app.get('/', function(req, res){
-		res.send('hello world!');
-	});
-
 	//用户模块
     //用户注册
     app.post('/user/register', user.register);
