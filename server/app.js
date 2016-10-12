@@ -4,16 +4,20 @@ var express = require('express'),
 	router = require('./lib/router'),
 	config = require('./config.json'),
 	app = express(),
-	uri = 'mongodb://' + config.host + ':' + config.port + '/' + config.dbname;
+	dbURI = 'mongodb://' + config.host + ':' + config.port + '/' + config.dbname,
+	dbOptions = {'user': config.username, 'pass': config.password};
 
 app.set('port', process.env.PORT || 3000);
 
 // Mongoose connection to MongoDB
-mongoose.connect(uri);
+mongoose.connect(dbURI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-	console.log('DB Connected');
+	// we're connected!
+});
+db.on('connected', function () {
+	console.log('Mongoose connected to ' + dbURI);
 });
 
 //日志配置
@@ -37,6 +41,9 @@ app.use(log4js.connectLogger(logger, {
 }));
 
 //路由
+app.get('/', function(req, res){
+    res.send('hello world!');
+});
 router(app);
 
 app.listen(app.get('port'), function(){

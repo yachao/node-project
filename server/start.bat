@@ -1,1 +1,1 @@
-mongod --dbpath "c:\MongoDB\data" --logpath "c:\MongoDB\log\mongo.log" --logappend
+mongod --dbpath "c:\MongoDB\data" --logpath "c:\MongoDB\log\mongo.log" --logappend --port 27017

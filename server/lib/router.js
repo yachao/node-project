@@ -3,6 +3,7 @@
  * @module router
  */
 var user = require('./user');
+var verify = require('./verify');
 
 /*
 * 服务路由
@@ -14,4 +15,8 @@ module.exports = function(app){
     app.post('/user/register', user.register);
     //用户登录后创建更新token
     app.post('/user/login', user.login);
+    //生成验证码
+    app.post('/verify/create', verify.create);
+    //校验验证码
+    app.post('/verify/check', verify.check);
 };
