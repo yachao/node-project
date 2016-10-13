@@ -20,7 +20,8 @@ module.exports = {
         ctx.stroke();
 
 //      req.session.verifyCode = code;
-        return res.send(200, canvas.toBuffer());
+        console.log(code)
+        return res.status(200).send(canvas.toBuffer());
     },
 
     /*

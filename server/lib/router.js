@@ -16,7 +16,7 @@ module.exports = function(app){
     //用户登录后创建更新token
     app.post('/user/login', user.login);
     //生成验证码
-    app.post('/verify/create', verify.create);
+    app.get('/verify/create', verify.create);
     //校验验证码
-    app.post('/verify/check', verify.check);
+    app.get('/verify/check', verify.check);
 };
